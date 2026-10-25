@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!-- DOCTYPE: le dice al navegador que este documento es HTML5 -->
+<html lang="es">
+<!-- html: la etiqueta raiz; lang="es" indica que el contenido esta en espanol -->
+<head>
+    <!-- head: informacion SOBRE la pagina (no se ve en la ventana) -->
+    <meta charset="UTF-8">
+    <!-- charset UTF-8: permite tildes, enie y simbolos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport: la pagina se adapta al ancho del celular -->
+    <title>Registrar un equipo</title>
+    <!-- title: el texto que aparece en la pestana del navegador -->
+    <!-- Bootstrap: una hoja de estilos YA HECHA que se carga desde internet (CDN).
+         Con solo poner sus "clases" en las etiquetas, la pagina se ve ordenada. -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+</head>
+
+<style>
+  /* Ocultamos la alerta por defecto para la alerta de campos obligatorios en el formulario*/
+  .alerta-automatica {
+    display: none;
+  }
+
+  /* Cómo no usamos javascript la alerta esta activa desde el momento que carga la pagina*/
+  form:invalid .alerta-automatica {
+    display: block;
+  }
+</style>
+
+<style>
+  /* Un falso modal debido a que no se envian datos a un servidor. 
+  Ocultar el modal por defecto */
+  .falso-modal {
+    display: none;
+    position: center;
+    top: 0; left: 0; width: 30%; height: 30%;
+    background: rgba(50, 231, 22, 0.5);
+    z-index: 1050;
+  }
+  /* Cuando el enlace apunta al ID del modal (#exito), se muestra */
+  .falso-modal:target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+<body class="container py-3">
+    <!-- class="container": Bootstrap centra el contenido; py-3 = espacio arriba y abajo -->
+    <!-- p-4 = relleno; mb-4 = margen abajo; bg-primary text-white = fondo azul y letra blanca; rounded = esquinas redondas -->
+    <header class="p-4 mb-4 bg-primary text-white rounded">
+        <h1>Encuesta</h1>
+        <p>Hábitos de consumo de energía de una familia.</p>
+        <!-- nav: el MENU de navegacion entre las paginas del sitio -->
+        <!-- nav nav-pills: menu con botones redondeados; cada enlace lleva class="nav-link" -->
+        <nav class="nav nav-pills">
+            <!-- a href: un ENLACE; aqui apunta a otro archivo del mismo sitio -->
+            <a class="nav-link text-white" href="index.html">Inicio</a>
+            <a class="nav-link text-white" href="equipos.html">Equipos de mi casa</a>
+            <a class="nav-link text-white" href="registro.html">Registrar un equipo</a>
+            <a class="nav-link text-white" href="mi-factura.html">Mi Factura</a>
+            <a class="nav-link text-white" href="encuesta.html">Encuesta</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- form: un FORMULARIO; action = adonde se envian los datos, method = como -->
+        <!-- Sin servidor, lo enviamos a esta misma pagina con GET: los datos aparecen en la URL -->
+        <form action="encuesta.html" method="get">
+
+            <!-- fieldset agrupa campos relacionados; legend es su titulo -->
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Registro de datos de consumo de energía.</legend>
+
+                <!-- label for="x" se conecta con el input id="x": al hacer clic en el texto, se activa el campo -->
+                <p>
+                    <label for="familia">Apellido principal de la familia:</label>
+                    <!-- type="text": texto; required: obligatorio; placeholder: texto de ayuda -->
+                    <input class="form-control" type="text" id="familia" name="familia" required placeholder="Ej.: Ramirez">
+                </p>
+
+                <p>
+                    <lable for="email">Dirección de correo electrónico</lable>
+                    <input class="form-control" type="email" id="email" name="email" required placeholder="ejemplo@email.com"> 
+                </p>
+
+                <p>
+                    <label for="electrodomesticos">Cuantos electrodomésticos usan en su casas?:</label>
+                    <!-- type="number" con min y max: el navegador no deja enviar valores fuera del rango -->
+                    <input class="form-control" type="number" id="electrodomesticos" name="electrodomesticos" min="1" max="30" required>
+                </p>
+
+                <p>
+                    <label for="electroencendidos">Contando de 5 en 5 ¿Cuantos electrodomésticos pueden estar encendidos en este momento en su casa?:</label>
+                    <input class="form-control" type="range" id="electroencendidos" name="electroencendidos" min="0" max="30" value="15" step="5" oninput="this.nextElementSibling.value = this.value" required>
+                    <output>15</output>
+                </p>
+
+                <p>
+                    <label for="creencia">Cual de estos electrodomésticos cree que consume más energía en su casa?:</label>
+                    <!-- select: lista DESPLEGABLE; cada option es una opcion -->
+                    <select class="form-select" id="creencia" name="creencia">
+                        <option value="bombillo">Bombillos</option>
+                        <option value="plancha">Plancha</option>
+                        <option value="ducha">Ducha electrica</option>
+                        <option value="nevera">Nevera</option>
+                        <option value="lavadora">Lavadora</option>
+                        <option value="computador">Computador</option>
+                        <option value="lampara">Lampara</option>
+                        <option value="airfrier">Air Frier</option>
+                    </select>
+                </p>
+            </fieldset>
+
+            <fieldset class="border rounded p-3 mb-3">
+                <legend>Reducción del consumo de energía</legend>
+                <p>¿Cual persona de su familia es el más comprometido en el uso racional de la energía?</p>
+                <!-- radio: se puede elegir SOLO UNA opcion del grupo (mismo name) -->
+                <input type="radio" id="yo" name="racional" value="yo" checked>
+                <label for="control1">Yo mismo</label>
+                <input type="radio" id="pareja" name="racional" value="pareja">
+                <label for="noche">Mi pareja</label>
+                <input type="radio" id="hijos" name="racional" value="hijos">
+                <label for="noche">Mis hijos</label>
+                <input type="radio" id="familiar" name="racional" value="familiar">
+                <label for="noche">Otro familiar</label>
+                <legend>En su familia hablan sobre la importancia de ahorrar energía?</legend>
+                <p>
+                    <!-- checkbox: casilla que se marca o no -->
+                    <input type="checkbox" id="comunicacion" name="comunicacion" value="si">
+                    <label for="comunicacion">Tenemos habitos de consumo responsable de la energía.</label>
+                </p>
+
+                <p>
+                    <label for="fecha">Fecha en que llena la encuesta:</label>
+                    <!-- type="date": el navegador muestra un calendario -->
+                    <input class="form-control" type="date" id="fecha" name="fecha">
+                </p>
+
+                <p>
+                    <label for="notas">Como se sintió al llenar la encuesta?:</label><br>
+                    <!-- textarea: texto de VARIAS lineas -->
+                    <textarea class="form-control" id="notas" name="notas" rows="3" cols="40" placeholder="Ej.: muy larga o corta"></textarea>
+                </p>
+            </fieldset>
+
+            <!-- button type="submit": ENVIA el formulario; type="reset": lo borra -->
+            <!-- btn btn-primary: boton azul; btn btn-secondary: boton gris -->
+            <!-- OJO PELAO _ Cometamos el boton submit original-->
+            <!-- <button class="btn btn-primary" type="submit">Registrar</button> -->
+            <!-- Cambiamos el type="submit" por un enlace que simula el envío -->
+            <a href="#exito" class="btn btn-primary">Enviar formulario</a>
+            <button class="btn btn-secondary" type="reset">Borrar</button>
+
+            <div id="exito" class="falso-modal">
+                <div class="modal-dialog">
+                     <div class="modal-content p-4">
+                        <div class="modal-body text-center">
+                            <h4 class="text-success">¡Enviado con éxito!</h4>
+                            <p>Tu información ha sido recibida correctamente.</p>
+                            <!-- Este botón quita el #exito de la URL y vuelve a ocultar el modal -->
+                            <a href="#" class="btn btn-secondary">Cerrar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- La alerta de campos obligatorios se encuentra activa desde el momento de la carga de la pagina -->
+            <!-- y desaparece cuando llenamos los primeros 3 campos que son obligatorios -->
+            <div class="col-12 alerta-automatica">
+                <div class="alert alert-danger" role="alert">
+                <strong>¡Atención!</strong> Faltan campos obligatorios por llenar en este formulario.
+                </div>
+            </div>
+
+        </form>
+    </main>
+
+    <!-- text-muted = letra gris; mt-4 = margen arriba -->
+    <footer class="mt-4 text-muted">
+        <p>Ingeniería Web I · IU Digital de Antioquia · 2026-2</p>
+    </footer>
+</body>
+</html>
