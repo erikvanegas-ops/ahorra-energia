@@ -13,36 +13,6 @@
     <!-- Bootstrap: una hoja de estilos YA HECHA que se carga desde internet (CDN).
          Con solo poner sus "clases" en las etiquetas, la pagina se ve ordenada. -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    
-    <style>
-      /* Ocultamos la alerta por defecto para la alerta de campos obligatorios en el formulario*/
-      .alerta-automatica {
-        display: none;
-      }
-
-  /* Cómo no usamos javascript la alerta esta activa desde el momento que carga la pagina*/
-      form:invalid .alerta-automatica {
-        display: block;
-      }
-    </style>
-
-    <style>
-      /* Un falso modal debido a que no se envian datos a un servidor. 
-      Ocultar el modal por defecto */
-      .falso-modal {
-        display: none;
-        position: center;
-        top: 0; left: 0; width: 30%; height: 30%;
-        background: rgba(50, 231, 22, 0.5);
-        z-index: 1050;
-      }
-        /* Cuando el enlace apunta al ID del modal (#exito), se muestra */
-      .falso-modal:target {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-    </style>
 </head>
  
 <body class="container py-3">
