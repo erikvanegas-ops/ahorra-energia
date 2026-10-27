@@ -36,16 +36,15 @@
         background: rgba(50, 231, 22, 0.5);
         z-index: 1050;
       }
+        /* Cuando el enlace apunta al ID del modal (#exito), se muestra */
+      .falso-modal:target {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
 </head>
-
-  /* Cuando el enlace apunta al ID del modal (#exito), se muestra */
-  .falso-modal:target {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
-
+ 
 <body class="container py-3">
     <!-- class="container": Bootstrap centra el contenido; py-3 = espacio arriba y abajo -->
     <!-- p-4 = relleno; mb-4 = margen abajo; bg-primary text-white = fondo azul y letra blanca; rounded = esquinas redondas -->
