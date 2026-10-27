@@ -116,33 +116,9 @@
 
             <!-- button type="submit": ENVIA el formulario; type="reset": lo borra -->
             <!-- btn btn-primary: boton azul; btn btn-secondary: boton gris -->
-            <!-- OJO PELAO _ Cometamos el boton submit original-->
-            <!-- <button class="btn btn-primary" type="submit">Registrar</button> -->
-            <!-- Cambiamos el type="submit" por un enlace que simula el envío -->
-            <a href="#exito" class="btn btn-primary">Enviar formulario</a>
+            
+            <button class="btn btn-primary" type="submit">Registrar</button>
             <button class="btn btn-secondary" type="reset">Borrar</button>
-
-            <div id="exito" class="falso-modal">
-                <div class="modal-dialog">
-                     <div class="modal-content p-4">
-                        <div class="modal-body text-center">
-                            <h4 class="text-success">¡Enviado con éxito!</h4>
-                            <p>Tu información ha sido recibida correctamente.</p>
-                            <!-- Este botón quita el #exito de la URL y vuelve a ocultar el modal -->
-                            <a href="#" class="btn btn-secondary">Cerrar</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- La alerta de campos obligatorios se encuentra activa desde el momento de la carga de la pagina -->
-            <!-- y desaparece cuando llenamos los primeros 3 campos que son obligatorios -->
-            <div class="col-12 alerta-automatica">
-                <div class="alert alert-danger" role="alert">
-                <strong>¡Atención!</strong> Faltan campos obligatorios por llenar en este formulario.
-                </div>
-            </div>
-
         </form>
     </main>
 
