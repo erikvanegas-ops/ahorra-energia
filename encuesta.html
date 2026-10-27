@@ -85,20 +85,29 @@
             <fieldset class="border rounded p-3 mb-3">
                 <legend>Reducción del consumo de energía</legend>
                 <p>¿Cual persona de su familia es el más comprometido en el uso racional de la energía?</p>
-                <!-- radio: se puede elegir SOLO UNA opcion del grupo (mismo name) -->
-                <input type="radio" id="yo" name="racional" value="yo" checked>
-                <label for="control1">Yo mismo</label>
-                <input type="radio" id="pareja" name="racional" value="pareja">
-                <label for="noche">Mi pareja</label>
-                <input type="radio" id="hijos" name="racional" value="hijos">
-                <label for="noche">Mis hijos</label>
-                <input type="radio" id="familiar" name="racional" value="familiar">
-                <label for="noche">Otro familiar</label>
+                <!-- radio: se puede elegir SOLO UNA opcion del grupo (mismo name) -->   
+                <p>
+                    <label for="control1">Yo mismo</label>
+                    <input type="radio" id="yo" name="racional" value="yo" checked>
+                </p>
+                <p>
+                    <label for="noche">Mi pareja</label>
+                    <input type="radio" id="pareja" name="racional" value="pareja">
+                </p>
+                <p>
+                    <label for="noche">Mis hijos</label>
+                    <input type="radio" id="hijos" name="racional" value="hijos">
+                </p>
+                <p>
+                    <label for="noche">Otro familiar</label>
+                    <input type="radio" id="familiar" name="racional" value="familiar">
+                </p>    
+                       
                 <legend>En su familia hablan sobre la importancia de ahorrar energía?</legend>
                 <p>
                     <!-- checkbox: casilla que se marca o no -->
-                    <input type="checkbox" id="comunicacion" name="comunicacion" value="si">
                     <label for="comunicacion">Tenemos habitos de consumo responsable de la energía.</label>
+                    <input type="checkbox" id="comunicacion" name="comunicacion" value="si">                    
                 </p>
 
                 <p>
